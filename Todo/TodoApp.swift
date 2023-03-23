@@ -6,12 +6,17 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 @main
 struct TodoApp: App {
+    let store = Store(initialState: TodosState(),
+                      reducer: todosReducer,
+                      environment: TodosEnvironment(uuid: UUID.init, scheduler: .main))
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TodosView(store: store)
         }
     }
 }
