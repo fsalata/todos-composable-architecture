@@ -32,7 +32,7 @@ struct TodosView_Previews: PreviewProvider {
         TodosView(store: .init(
           initialState: .placeholder,
             reducer: todosReducer,
-            environment: .init(uuid: UUID.init, scheduler: .main.eraseToAnyScheduler())
+            environment: .init(uuid: UUID(), scheduler: .main.eraseToAnyScheduler())
         ))
     }
 }

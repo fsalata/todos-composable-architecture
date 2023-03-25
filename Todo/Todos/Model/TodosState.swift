@@ -8,7 +8,7 @@
 import Foundation
 import ComposableArchitecture
 
-struct TodosState: Equatable {
+struct TodosState: Equatable, Codable {
     var todos: IdentifiedArrayOf<Todo> = []
 }
 

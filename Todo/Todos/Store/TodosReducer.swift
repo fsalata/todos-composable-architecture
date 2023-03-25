@@ -9,7 +9,7 @@ import Foundation
 import ComposableArchitecture
 
 struct TodosEnvironment {
-    var uuid: () -> UUID
+    var uuid: UUID
     var scheduler: AnySchedulerOf<DispatchQueue>
 }
 
@@ -25,7 +25,7 @@ let todosReducer = AnyReducer<TodosState, TodosAction, TodosEnvironment>.combine
         .init { state, action, env in
             switch action {
             case .addTodo:
-                state.todos.insert(Todo(id: env.uuid()), at: 0)
+                state.todos.insert(Todo(id: env.uuid), at: 0)
                 return .none
 
             case .delete(let indexSet):
